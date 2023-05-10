@@ -12,3 +12,23 @@ variable "project" {
   type        = string
   description = "Project name"
 }
+
+
+variable "environment" {
+  type        = string
+  description = "Specify the type of environement"
+  default     = "dev"
+
+  validation {
+    condition = contains([
+      "dev",
+      "prod",
+    ], var.environment)
+    error_message = "Then environment value is invalid."
+  }
+}
+
+variable "owner" {
+  type        = string
+  description = "Owner"
+}
