@@ -3,3 +3,17 @@ resource "azurerm_storage_container" "storage_countainer" {
 
   storage_account_name = var.storage_account_name
 }
+
+variable "environment" {
+  type        = string
+  description = "Specify the type of environement"
+  default     = "dev"
+
+  validation {
+    condition = contains([
+      "dev",
+      "prod",
+    ], var.environment)
+    error_message = "Then environment value is invalid."
+  }
+}
