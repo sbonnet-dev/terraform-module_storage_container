@@ -27,8 +27,3 @@ variable "environment" {
     error_message = "Then environment value is invalid."
   }
 }
-
-variable "owner" {
-  type        = string
-  description = "Owner"
-}
